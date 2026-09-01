@@ -24,5 +24,3 @@ for i in range(len(string)):
 print("".join(odd_str))
 print(string.count("a"))
 print(string.find("o"))
-
-    
