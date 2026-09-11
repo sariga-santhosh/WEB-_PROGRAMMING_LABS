@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset = "UTF-8">
+        <title>
+            Web Technology Webpage
+        </title>
+        <style>
+            { 
+                box-sizing: border-box; 
+                margin: 0; 
+                padding: 0; 
+            }
+
+            html { 
+                scroll-behavior: smooth; 
+            } 
+            body { 
+                font-family: Arial, sans-serif; 
+                line-height: 1.6; 
+                background-color: #e3edf7; 
+                color: #0f0e0e; 
+            }
+            nav { 
+                background-color: #58595c; 
+                position: sticky; 
+                top: 0; 
+                z-index: 100; 
+            }
+            nav ul { 
+                list-style: none; 
+                display: flex; 
+                justify-content: center; 
+                flex-wrap: wrap; 
+            } 
+            nav ul li a { 
+                display: block; 
+                color: white; 
+                text-decoration: none; 
+                padding: 15px 18px;
+                font-weight: bold; 
+            } 
+            nav ul li a:hover { 
+                background-color: #808080; 
+            }
+        </style>
+    </head>
+    <body>
+        <h1>WEB TECHNOLOGY</h1>
+        <P>Web Technology refers to the tools, techniques, programming languages, and protocols used to create, develop, and maintain websites and web applications. It enables communication between users and web servers through the Internet.
+        <br>It involves:<br></P>
+            <nav>
+                <ul>
+                <li><a href = "#Client/Server">Client/Server</a></li>
+                <li><a href = "#components">Components of Web Application</a></li>
+                <li><a href = "#content">Types of Web Content</a></li>
+                <li><a href = "#http">HTTP and HTTP Request</a></li>
+                <li><a href = "#dynamic">Dynamic Web Pages</a></li>
+                <li><a href = "#application server">Application Servers</a></li>
+                <li><a href = "#web security">Web Security</a></li>
+                </ul>
+            </nav>
+            <section id = "Client/Server">
+        <h3><u>Client/Server</h3></u>
+            <b>Client: </b>
+            A program or device that requests services,data or resources from another program.
+                It initiates communication.
+                Examples: web browser,mobile app,email client<br>
+            
+        
+        <b>Server: </b>
+            A program or device that listens for requests and provides services, data, or resources in response. It waits for and responds to clients.
+                Examples: web server, database server, file server</section>
+        
+          <section id = "components">     
+        <h3><u>Components of Web Application</u></h3>
+            <b>View Layer (Presentation Layer): </b>
+            The part of a web application that the user directly interacts with. It handles the display of information and the user interface, typically built with HTML, CSS, and JavaScript.<br>
+        
+            <b>Business Layer (Logic Layer): </b>
+            The layer that processes the core functionality and business rules of the application. It acts as a bridge between the view layer and the data access layer, handling calculations, validations, and decision-making logic.<br>
+        
+            <b>Data Access Layer: </b>
+            The layer responsible for communicating with the database or data storage system. It handles operations like retrieving, inserting, updating, and deleting data.<br>
+        </section> 
+
+        <section id = "content">
+        <h3><u>Types of Web Content</u></h3>
+        <ul>
+            <li>
+                Text
+                Written content such as articles, paragraphs, and headings displayed on a webpage.
+            
+            </li>
+            <li>
+                    Images
+                    Visual content in formats like JPEG, PNG, or GIF used to enhance and illustrate webpages.
+                
+            </li>
+            <li>
+                    Audio
+                    Sound files embedded in webpages, such as music or voice recordings, usually in formats like MP3 or WAV.
+                
+            </li>
+            <li>
+                    Video
+                    Moving visual content with or without sound, embedded using formats like MP4.
+                
+            </li>
+            <li>
+                    Animation
+                    Content that creates the illusion of motion, often using CSS, JavaScript, GIFs, or SVG.
+                
+            </li>
+        </ul>
+        </section>
+
+        <section id = "http">
+        <h3><u>HTTP and HTTP Request</u></h3>
+            <b>HTTP (HyperText Transfer Protocol): </b>
+            A protocol used for transmitting hypertext (web pages) between a client (browser) and a server over the internet. It defines rules for how messages are formatted and transmitted.<br>
+            HTTP Request and Response
+            An HTTP request is a message sent by the client to the server asking for a resource (e.g., a webpage). An HTTP response is the message sent back by the server, containing the requested data or an error/status message.<br>
+        
+            <b>Working of HTTP Communication: </b>
+            The client sends an HTTP request to the server specifying the desired action (like GET or POST); the server processes the request and returns an HTTP response with a status code (e.g., 200 OK) and the requested content, completing the communication cycle.<br>
+        </section>
+
+        <section id = "dynamic">
+        <h3><u>Dynamic Web Pages</u></h3>
+        <p><b>Definition:</b> A dynamic web page is a webpage whose content can change based on user interaction, input, or other factors, often generated in real-time using server-side or client-side scripting.</p><br>
+        <b>Characteristics:</b>
+        <ul>
+            <li>Content changes based on user input or database data</li>
+            <li>Requires scripting languages (e.g., PHP, JavaScript, Python)</li>
+            <li>Interacts with databases</li>
+            <li>Personalized content for different users</li>
+        </ul>
+        <p><b>Examples: </b>Social media feeds (Facebook, Instagram), online shopping sites (Amazon), email services (Gmail), and search engines (Google).</p>
+        </section>
+         
+        <section id = "application server">
+        <h3><u>Application Servers</u></h3>
+        <p><b>Definition: </b>An application server is a software framework that provides an environment for running and managing web applications, handling business logic between users and backend databases/services.</p>
+        <p><b>Purpose: </b>To execute application code, manage transactions, and provide services like security, load balancing, and connectivity between the client and the database.</p>
+        <p><b>Major Services: </b>Transaction management, security and authentication, load balancing, database connection pooling, session management, and messaging services.</p>
+        </section>
+
+        <section id = "web security">
+        <h3><u>Web Security</u></h3>
+        <p><b>Definition: </b>Web security refers to the measures and protocols implemented to protect websites and web applications from cyber threats, unauthorized access, and data breaches.</p>
+        <p><b>Importance: </b>Protects sensitive user data, maintains user trust, prevents financial loss, ensures business continuity, and complies with legal/regulatory requirements.</p>
+        <b><u>Basic Security Measures: </u></b><br>
+        <ul>
+            <li>Using HTTPS/SSL encryption</li>
+            <li>Strong password policies and authentication</li>
+            <li>Regular software updates and patches</li>
+            <li>Input validation to prevent SQL injection/XSS attacks</li>
+            <li>Firewalls and intrusion detection systems</li>
+            <li>Regular data backups</li>
+        </ul>
+        </section>
+    </body>
+</html>
