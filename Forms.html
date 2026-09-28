@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <title>Job Application Form</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f5f7;
+      color: #222;
+      margin: 0;
+      padding: 30px 12px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Table layout */
+    table {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-collapse: collapse;
+      border: 1px solid #ccd3d9;
+    }
+
+    th {
+      background-color: #3b1e3b;
+      color: #fff;
+      text-align: left;
+      padding: 10px 14px;
+    }
+
+    td {
+      padding: 10px 14px;
+      border: 1px solid #dde3e8;
+    }
+
+    /* Label column */
+    td:first-child {
+      width: 35%;
+      font-weight: bold;
+    }
+
+    /* Text-style fields */
+    input[type="text"],
+    input[type="number"],
+    input[type="password"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="file"],
+    select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #b8c2ca;
+      border-radius: 4px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: #2c5f7c;
+      box-shadow: 0 0 0 2px rgba(44, 95, 124, 0.2);
+    }
+
+    /* Checkboxes and radio buttons */
+    input[type="checkbox"],
+    input[type="radio"] {
+      margin-right: 4px;
+    }
+
+    td label {
+      margin-right: 14px;
+      font-weight: normal;
+    }
+
+    /* Buttons */
+    input[type="submit"],
+    input[type="reset"] {
+      padding: 9px 24px;
+      margin: 0 6px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    input[type="submit"] {
+      background-color: #3d1742;
+      color: #fff;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #224b63;
+    }
+
+    input[type="reset"] {
+      background-color: #e3e8ec;
+      color: #222;
+    }
+
+    input[type="reset"]:hover {
+      background-color: #d2d9df;
+    }
+  </style>
+</head>
+  
+<body>
+
+<h1>Job Application Form</h1>
+
+<form action="#" method="post" enctype="multipart/form-data">
+  <table border="1" cellpadding="8" cellspacing="0">
+
+    <!-- Personal Information -->
+    <tr><th colspan="2">Personal Information</th></tr>
+    <tr>
+      <td><label for="name">Name</label></td>
+      <td><input type="text" id="name" name="name" required></td>
+    </tr>
+    <tr>
+      <td><label for="age">Age</label></td>
+      <td><input type="number" id="age" name="age" min="18" max="65" required></td>
+    </tr>
+    <tr>
+      <td><label for="pw">Password</label></td>
+      <td><input type="password" id="pw" name="password" minlength="8" required></td>
+    </tr>
+    <tr>
+      <td><label for="pw2">Retype Password</label></td>
+      <td><input type="password" id="pw2" name="password2" minlength="8" required></td>
+    </tr>
+
+    <!-- Security Information -->
+    <tr><th colspan="2">Security Information</th></tr>
+    <tr>
+      <td><label for="sq">Security Question</label></td>
+      <td>
+        <select id="sq" name="security_question" required>
+          <option value="">-- Select a question --</option>
+          <option>What was the name of your first school?</option>
+          <option>What is your mother's maiden name?</option>
+          <option>What was the name of your first pet?</option>
+          <option>In which town were you born?</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="sa">Security Answer</label></td>
+      <td><input type="text" id="sa" name="security_answer" required></td>
+    </tr>
+
+    <!-- Contact Information -->
+    <tr><th colspan="2">Contact Information</th></tr>
+    <tr>
+      <td><label for="email">Email ID</label></td>
+      <td><input type="email" id="email" name="email" required></td>
+    </tr>
+    <tr>
+      <td><label for="home">Home Phone Number</label></td>
+      <td><input type="tel" id="home" name="home_phone" required></td>
+    </tr>
+    <tr>
+      <td><label for="office">Office Phone Number</label></td>
+      <td><input type="tel" id="office" name="office_phone"></td>
+    </tr>
+
+    <!-- Languages Known -->
+    <tr><th colspan="2">Languages Known</th></tr>
+    <tr>
+      <td>Languages</td>
+      <td>
+        <input type="checkbox" id="ml" name="lang" value="Malayalam">
+        <label for="ml">Malayalam</label>
+        <input type="checkbox" id="en" name="lang" value="English">
+        <label for="en">English</label>
+        <input type="checkbox" id="hi" name="lang" value="Hindi">
+        <label for="hi">Hindi</label>
+      </td>
+    </tr>
+    <tr>
+      <td>Proficiency</td>
+      <td>
+        <input type="radio" id="basic" name="level" value="basic">
+        <label for="basic">Basic</label>
+        <input type="radio" id="fluent" name="level" value="fluent">
+        <label for="fluent">Fluent</label>
+      </td>
+    </tr>
+
+    <!-- Application Documents -->
+    <tr><th colspan="2">Application Documents</th></tr>
+    <tr>
+      <td><label for="cv">Upload CV</label></td>
+      <td><input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required></td>
+    </tr>
+
+    <!-- Buttons -->
+    <tr>
+      <td colspan="2" align="center">
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+      </td>
+    </tr>
+
+  </table>
+</form>
+
+</body>
+</html>
