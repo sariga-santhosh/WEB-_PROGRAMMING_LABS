@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Change Background</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      transition: background-color 0.4s;
+    }
+    h2 {
+      margin-bottom: 20px;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 6px 14px;
+      border-radius: 4px;
+    }
+    button {
+      padding: 12px 28px;
+      font-size: 18px;
+      background: #1565c0;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover { background: #0d47a1; }
+    #colorCode {
+      margin-top: 15px;
+      font-weight: bold;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Click the button to change the background</h2>
+  <button id="changeBtn">Change Background</button>
+  <p id="colorCode">Current color: #ffffff</p>
+
+  <script>
+    // Generate a random hex color like #a3f2c1
+    function getRandomColor() {
+      var letters = "0123456789ABCDEF";
+      var color = "#";
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    var button = document.getElementById("changeBtn");
+    var colorText = document.getElementById("colorCode");
+
+    // Event listener for the button click
+    button.addEventListener("click", function () {
+      var newColor = getRandomColor();
+      document.body.style.backgroundColor = newColor;
+      colorText.textContent = "Current color: " + newColor;
+    });
+  </script>
+
+</body>
+</html>
