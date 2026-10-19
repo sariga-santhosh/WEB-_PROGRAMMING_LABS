@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>String and Math Functions</title>
+</head>
+<body>
+
+<h1>JavaScript String and Math Functions</h1>
+
+<h2>String Functions</h2>
+
+Enter text:<br>
+<textarea id="text" rows="3" cols="60">JavaScript is fun. I love JavaScript.</textarea>
+<br><br>
+
+<b>Length</b><br>
+<button onclick="getLength()">Find Length</button>
+<p id="r1"></p>
+
+<b>First and Last Occurrence</b><br>
+Word: <input type="text" id="w1" value="JavaScript">
+<button onclick="occurrence()">Find</button>
+<p id="r2"></p>
+
+<b>Search a Word</b><br>
+Word: <input type="text" id="w2" value="love">
+<button onclick="searchWord()">Search</button>
+<p id="r3"></p>
+
+<b>Slice, Substring, Substr</b><br>
+Start: <input type="number" id="start" value="0">
+End / Length: <input type="number" id="end" value="10"><br>
+<button onclick="doSlice()">Slice</button>
+<button onclick="doSubstring()">Substring</button>
+<button onclick="doSubstr()">Substr</button>
+<p id="r4"></p>
+
+<b>Replace a Word</b><br>
+Old word: <input type="text" id="oldw" value="JavaScript">
+New word: <input type="text" id="neww" value="Python">
+<button onclick="replaceWord()">Replace</button>
+<p id="r5"></p>
+
+<b>Uppercase and Lowercase</b><br>
+<button onclick="upper()">Uppercase</button>
+<button onclick="lower()">Lowercase</button>
+<p id="r6"></p>
+
+<hr>
+
+<h2>Math Functions</h2>
+
+<b>Power and Square Root</b><br>
+Number: <input type="number" id="num" value="4">
+Power: <input type="number" id="pow" value="3"><br>
+<button onclick="power()">Power</button>
+<button onclick="squareRoot()">Square Root</button>
+<p id="r7"></p>
+
+<b>Round, Ceil, Floor</b><br>
+Number: <input type="number" id="dec" step="any" value="7.45">
+<button onclick="doRound()">Round</button>
+<button onclick="doCeil()">Ceil</button>
+<button onclick="doFloor()">Floor</button>
+<p id="r8"></p>
+
+<b>Absolute Value</b><br>
+Number: <input type="number" id="absnum" step="any" value="-25">
+<button onclick="absolute()">Absolute</button>
+<p id="r9"></p>
+
+<b>Sine and Cosine</b><br>
+Angle (degrees): <input type="number" id="angle" step="any" value="30">
+<button onclick="sine()">Sin</button>
+<button onclick="cosine()">Cos</button>
+<p id="r10"></p>
+
+<b>Minimum and Maximum</b><br>
+Numbers (comma separated): <input type="text" id="list" value="12, 5, 48, -3, 27">
+<button onclick="minimum()">Min</button>
+<button onclick="maximum()">Max</button>
+<p id="r11"></p>
+
+<b>Random Number</b><br>
+<button onclick="randomNum()">Generate</button>
+<p id="r12"></p>
+
+<script>
+// ---------- String functions ----------
+function getText() {
+    return document.getElementById("text").value;
+}
+
+function getLength() {
+    document.getElementById("r1").innerHTML = "Length = " + getText().length;
+}
+
+function occurrence() {
+    var t = getText();
+    var w = document.getElementById("w1").value;
+    document.getElementById("r2").innerHTML =
+        "First occurrence = " + t.indexOf(w) + "<br>Last occurrence = " + t.lastIndexOf(w);
+}
+
+function searchWord() {
+    var t = getText();
+    var w = document.getElementById("w2").value;
+    var pos = t.search(w);
+    if (pos == -1) {
+        document.getElementById("r3").innerHTML = "Word not found";
+    } else {
+        document.getElementById("r3").innerHTML = "Word found at position " + pos;
+    }
+}
+
+function doSlice() {
+    var s = Number(document.getElementById("start").value);
+    var e = Number(document.getElementById("end").value);
+    document.getElementById("r4").innerHTML = "slice: " + getText().slice(s, e);
+}
+
+function doSubstring() {
+    var s = Number(document.getElementById("start").value);
+    var e = Number(document.getElementById("end").value);
+    document.getElementById("r4").innerHTML = "substring: " + getText().substring(s, e);
+}
+
+function doSubstr() {
+    var s = Number(document.getElementById("start").value);
+    var l = Number(document.getElementById("end").value);
+    document.getElementById("r4").innerHTML = "substr: " + getText().substr(s, l);
+}
+
+function replaceWord() {
+    var o = document.getElementById("oldw").value;
+    var n = document.getElementById("neww").value;
+    document.getElementById("r5").innerHTML = getText().replace(o, n);
+}
+
+function upper() {
+    document.getElementById("r6").innerHTML = getText().toUpperCase();
+}
+
+function lower() {
+    document.getElementById("r6").innerHTML = getText().toLowerCase();
+}
+
+// ---------- Math functions ----------
+function power() {
+    var n = Number(document.getElementById("num").value);
+    var p = Number(document.getElementById("pow").value);
+    document.getElementById("r7").innerHTML = n + " ^ " + p + " = " + Math.pow(n, p);
+}
+
+function squareRoot() {
+    var n = Number(document.getElementById("num").value);
+    document.getElementById("r7").innerHTML = "Square root of " + n + " = " + Math.sqrt(n);
+}
+
+function doRound() {
+    var n = Number(document.getElementById("dec").value);
+    document.getElementById("r8").innerHTML = "Round = " + Math.round(n);
+}
+
+function doCeil() {
+    var n = Number(document.getElementById("dec").value);
+    document.getElementById("r8").innerHTML = "Ceil = " + Math.ceil(n);
+}
+
+function doFloor() {
+    var n = Number(document.getElementById("dec").value);
+    document.getElementById("r8").innerHTML = "Floor = " + Math.floor(n);
+}
+
+function absolute() {
+    var n = Number(document.getElementById("absnum").value);
+    document.getElementById("r9").innerHTML = "Absolute value = " + Math.abs(n);
+}
+
+function sine() {
+    var a = Number(document.getElementById("angle").value);
+    var rad = a * Math.PI / 180;
+    document.getElementById("r10").innerHTML = "sin(" + a + ") = " + Math.sin(rad);
+}
+
+function cosine() {
+    var a = Number(document.getElementById("angle").value);
+    var rad = a * Math.PI / 180;
+    document.getElementById("r10").innerHTML = "cos(" + a + ") = " + Math.cos(rad);
+}
+
+function getList() {
+    var parts = document.getElementById("list").value.split(",");
+    var arr = [];
+    for (var i = 0; i < parts.length; i++) {
+        arr.push(Number(parts[i]));
+    }
+    return arr;
+}
+
+function minimum() {
+    document.getElementById("r11").innerHTML = "Minimum = " + Math.min(...getList());
+}
+
+function maximum() {
+    document.getElementById("r11").innerHTML = "Maximum = " + Math.max(...getList());
+}
+
+function randomNum() {
+    document.getElementById("r12").innerHTML = "Random number = " + Math.random();
+}
+</script>
+
+</body>
+</html>
