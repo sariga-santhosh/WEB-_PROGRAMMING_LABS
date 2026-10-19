@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mouse Events</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: #eeeeee;
+    }
+    #contentArea {
+      width: 320px;
+      padding: 20px;
+      text-align: center;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+    }
+    /* Child elements ignore the mouse, so only #contentArea
+       triggers the events (this prevents flickering) */
+    #contentArea * {
+      pointer-events: none;
+    }
+    // Image 1: day scene (sun on blue sky)
+    var dayImage = "data:i
+    #mainImage {
+      width: 100%;
+      border-radius: 6px;
+    }
+    h2 { margin: 15px 0 5px; }
+    #heading1 { color: #f57c00; }
+    #heading2 { color: #1a237e; display: none; }
+    p { color: #555; margin: 5px 0 0; }
+  </style>
+</head>
+<body>
+
+  <div id="contentArea">
+    <img id="mainImage" alt="Display image">
+    <h2 id="heading1">Good Morning!</h2>
+    <h2 id="heading2">Good Night!</h2>
+    <p>Move the mouse over this box</p>
+  </div>
+
+  <script>
+    // Image 1: day scene (sun on blue sky)
+    var dayImage = "/home/sariga/mca/Web_Programming_Labs/images/1000_F_200835753_2ai9tTZDogZPZ0nmnKKdgIzdXIvxb8XT.webp"
+
+    // Image 2: night scene (moon on dark sky)
+    var nightImage = "/home/sariga/mca/Web_Programming_Labs/images/cute-maltipoo-dog-on-white-background-lovely-pet-photo.jpg" 
+
+    var area = document.getElementById("contentArea");
+    var image = document.getElementById("mainImage");
+    var heading1 = document.getElementById("heading1");
+    var heading2 = document.getElementById("heading2");
+
+    // Show the original image when the page loads
+    image.src = dayImage;
+
+    // Mouse moves onto the content area
+    area.addEventListener("mouseover", function () {
+      image.src = nightImage;            // change the image
+      heading1.style.display = "none";   // hide the original heading
+      heading2.style.display = "block";  // show the alternate heading
+    });
+
+    // Mouse moves away from the content area
+    area.addEventListener("mouseout", function () {
+      image.src = dayImage;              // restore the original image
+      heading2.style.display = "none";   // hide the alternate heading
+      heading1.style.display = "block";  // restore the original heading
+    });
+  </script>
+
+</body>
+</html>
