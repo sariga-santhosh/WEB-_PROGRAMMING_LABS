@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Monthly Calendar</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 30px;
+    }
+
+    .inputs {
+        margin-bottom: 20px;
+    }
+
+    input {
+        padding: 6px;
+        width: 100px;
+        margin: 0 8px;
+    }
+
+    button {
+        padding: 7px 16px;
+        margin: 0 4px;
+        cursor: pointer;
+    }
+
+    #message {
+        color: red;
+        margin: 10px 0;
+    }
+
+    #calendar h2 {
+        margin-bottom: 10px;
+    }
+
+    table {
+        margin: 0 auto;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #555;
+        width: 60px;
+        height: 45px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #333;
+        color: white;
+    }
+
+    td.sunday {
+        color: red;
+    }
+</style>
+</head>
+<body>
+
+<h1>Monthly Calendar</h1>
+
+<div class="inputs">
+    Year:
+    <input type="number" id="year" placeholder="e.g. 2026">
+    Month (1-12):
+    <input type="number" id="month" placeholder="e.g. 10" min="1" max="12">
+</div>
+
+<button onclick="generateCalendar()">Generate Calendar</button>
+<button onclick="resetCalendar()">Reset</button>
+
+<p id="message"></p>
+
+<div id="calendar"></div>
+
+<script>
+function generateCalendar() {
+    var year = Number(document.getElementById("year").value);
+    var month = Number(document.getElementById("month").value);
+    var message = document.getElementById("message");
+    var calendar = document.getElementById("calendar");
+
+    message.innerHTML = "";
+    calendar.innerHTML = "";
+
+    // Check the input
+    if (year < 1000 || year > 9999 || month < 1 || month > 12) {
+        message.innerHTML = "Please enter a year (1000-9999) and a month (1-12).";
+        return;
+    }
+
+    var monthNames = ["January", "February", "March", "April", "May", "June",
+                      "July", "August", "September", "October", "November", "December"];
+    var dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+    // Starting day of the month (0 = Sunday, 6 = Saturday)
+    var startDay = new Date(year, month - 1, 1).getDay();
+
+    // Number of days in the month (day 0 of next month = last day of this month)
+    var totalDays = new Date(year, month, 0).getDate();
+
+    // Build the table
+    var html = "<h2>" + monthNames[month - 1] + " " + year + "</h2>";
+    html += "<table><tr>";
+
+    for (var i = 0; i < 7; i++) {
+        html += "<th>" + dayNames[i] + "</th>";
+    }
+    html += "</tr><tr>";
+
+    // Empty cells before the first date
+    for (var i = 0; i < startDay; i++) {
+        html += "<td></td>";
+    }
+
+    // Dates, starting a new row after every Saturday
+    var column = startDay;
+    for (var date = 1; date <= totalDays; date++) {
+        if (column == 0) {
+            html += "<td class='sunday'>" + date + "</td>";
+        } else {
+            html += "<td>" + date + "</td>";
+        }
+        column++;
+
+        if (column == 7 && date < totalDays) {
+            html += "</tr><tr>";
+            column = 0;
+        }
+    }
+
+    // Empty cells after the last date to complete the row
+    while (column < 7 && column != 0) {
+        html += "<td></td>";
+        column++;
+    }
+
+    html += "</tr></table>";
+    calendar.innerHTML = html;
+}
+
+function resetCalendar() {
+    document.getElementById("year").value = "";
+    document.getElementById("month").value = "";
+    document.getElementById("message").innerHTML = "";
+    document.getElementById("calendar").innerHTML = "";
+}
+</script>
+
+</body>
+</html>
